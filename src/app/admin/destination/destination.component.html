@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="white-box">
+        <h3 class="box-title">Danh sách điểm đến</h3>
+        <a class="btn btn-success" routerLink="/admin/destination/add">Thêm mới</a>
+        <div class="table-responsive">
+          <table class="table text-nowrap">
+            <thead>
+            <tr>
+              <th class="border-top-0">#</th>
+              <th class="border-top-0">Tên điểm đến</th>
+              <th class="border-top-0">Hình ảnh</th>
+              <th class="border-top-0">Thao tác</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let item of listDestination">
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td class="text-nowrap">
+                  <img src="{{item.image}}" alt="" style="width: 100px; height: 100px">
+                </td>
+                <td>
+                  <button class="btn btn-danger" (click)="delete(item.id)">Xóa</button>
+                </td>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

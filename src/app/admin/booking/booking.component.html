@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="white-box">
+        <h3 class="box-title">Danh sách dịch vụ</h3>
+        <div class="table-responsive">
+          <table class="table text-nowrap">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Tên dịch vụ</th>
+              <th scope="col">Ngày đi</th>
+              <th scope="col">Họ và tên</th>
+              <th scope="col">Email</th>
+              <th scope="col">Yêu cầu</th>
+              <th scope="col">Trạng thái</th>
+              <th scope="col">Thao tác</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let item of listBooking">
+              <tr>
+                <th scope="row">{{item.id}}</th>
+                <td>{{item.pack.name}}</td>
+                <td>{{item.tourDate}}</td>
+                <td>{{item.fullName}}</td>
+                <td>{{item.email}}</td>
+                <td>{{item.request}}</td>
+                <td>
+                  {{item.status}}
+                </td>
+                <td>
+                  <ng-container *ngIf="item.status == 'pending'">
+                    <button class="btn btn-danger" (click)="accept(item.id)">Xác nhận</button>
+                    <button class="btn btn-success" (click)="reject(item.id)">Từ chối</button>
+                  </ng-container>
+                </td>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

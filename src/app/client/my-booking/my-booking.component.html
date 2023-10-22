@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tên dịch vụ</th>
+      <th scope="col">Ngày đi</th>
+      <th scope="col">Họ và tên</th>
+      <th scope="col">Email</th>
+      <th scope="col">Yêu cầu</th>
+      <th scope="col">Trạng thái</th>
+      <th scope="col">Thao tác</th>
+    </tr>
+    </thead>
+    <tbody>
+    <ng-container *ngIf="listMyBooking.length > 0; else noData">
+      <ng-container *ngFor="let item of listMyBooking">
+        <tr>
+          <th scope="row">{{item.id}}</th>
+          <td>{{item.pack.name}}</td>
+          <td>{{item.tourDate}}</td>
+          <td>{{item.fullName}}</td>
+          <td>{{item.email}}</td>
+          <td>{{item.request}}</td>
+          <td>
+            {{item.status}}
+          </td>
+          <td>
+            <ng-container *ngIf="item.status == 'pending'">
+              <button class="btn btn-primary" (click)="cancel(item.id)">Hủy lịch</button>
+            </ng-container>
+          </td>
+        </tr>
+      </ng-container>
+    </ng-container>
+    </tbody>
+  </table>
+</div>
+
+
+<ng-template #noData>
+  <tr>
+    <td colspan="9" class="text-center">Không có dữ liệu</td>
+  </tr>
+</ng-template>

@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="white-box">
+        <h3 class="box-title">Danh sách dịch vụ</h3>
+        <a class="btn btn-success" routerLink="/admin/service/add">Thêm mới</a>
+        <div class="table-responsive">
+          <table class="table text-nowrap">
+            <thead>
+            <tr>
+              <th class="border-top-0">#</th>
+              <th class="border-top-0">Tên dịch vụ</th>
+              <th class="border-top-0">Mô tả</th>
+              <th class="border-top-0">Thao tác</th>
+            </tr>
+            </thead>
+            <tbody>
+            <ng-container *ngFor="let item of listService">
+              <tr>
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.description | slice: 0 : 200}}</td>
+                <td>
+                  <button class="btn btn-danger" (click)="delete(item.id)">Xóa</button>
+                </td>
+            </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

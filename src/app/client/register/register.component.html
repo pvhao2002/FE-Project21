@@ -1,0 +1,44 @@
+<div class="container" id="container" [ngClass]="{'right-panel-active': toggleClass}">
+  <div class="form-container sign-up-container">
+    <form (submit)="register()">
+      <h2>Tạo tài khoản mới</h2>
+      <span class="text-danger fs-6">{{this.message}}</span>
+      <input type="text" [(ngModel)]="formModel.username" placeholder="Tên đăng nhập" name="username" required/>
+      <input type="password" placeholder="Mật khẩu" [(ngModel)]="formModel.password" name="password" required/>
+      <input type="text" placeholder="Họ và tên" name="password" [(ngModel)]="formModel.fullName" required/>
+      <input type="email" placeholder="Nhập email của bạn" [(ngModel)]="formModel.email" name="email" required/>
+      <textarea placeholder="Địa chỉ" name="address" [(ngModel)]="formModel.address" required></textarea>
+      <button>Đăng ký</button>
+    </form>
+  </div>
+  <div class="form-container sign-in-container">
+    <form (ngSubmit)="login()">
+      <h1>Đăng nhập</h1>
+      <div class="social-container">
+        <a href="javascript:;" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="javascript:;" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="javascript:;" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span class="text-danger fs-6">{{this.message}}</span>
+      <input type="text" name="username" [(ngModel)]="formModel.username" placeholder="Tên đăng nhập"/>
+      <input type="password" name="password" placeholder="Mật khẩu" [(ngModel)]="formModel.password"/>
+      <a href="javascript:;">Quên mật khẩu?</a>
+      <button>Đăng nhập</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Chào mừng trở lại!</h1>
+        <p>Để duy trì kết nối với chúng tôi vui lòng đăng nhập bằng thông tin cá nhân của bạn</p>
+        <button class="ghost" id="signIn" (click)="toggle()">Đăng nhập</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Chào, bạn!</h1>
+        <p>Nhập thông tin cá nhân của bạn và bắt đầu hành trình với chúng tôi</p>
+        <button class="ghost" id="signUp" (click)="toggle()">Đăng kí</button>
+      </div>
+    </div>
+  </div>
+</div>
+

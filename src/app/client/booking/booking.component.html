@@ -1,0 +1,65 @@
+<app-process></app-process>
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container">
+    <div class="booking p-5">
+      <div class="row g-5 align-items-center">
+        <div class="col-md-6 text-white">
+          <h6 class="text-white text-uppercase">Booking</h6>
+          <h1 class="text-white mb-4">Online Booking</h1>
+          <p class="mb-4">Du lịch Trong nước 2023 cùng Du lịch Viêt, chúng tôi luôn tổ chức Tour Du Lịch Trong nước
+            2023, những Tour Trong nước 2023 chất lượng, giá rẻ để phục vụ khách du lịch trên toàn quốc.</p>
+          <a class="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
+        </div>
+        <div class="col-md-6">
+          <h1 class="text-white mb-4">Book A Tour</h1>
+          <form (ngSubmit)="booking()">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control bg-transparent" [(ngModel)]="formModel.fullName" name="fullName"
+                         placeholder="Nguyễn Văn A">
+                  <label>Tên của bạn</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="email" class="form-control bg-transparent" [(ngModel)]="formModel.email" id="email" name="email"
+                         placeholder="abc@gmail.com">
+                  <label for="email">Email</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating date" data-target-input="nearest">
+                  <input type="date" class="form-control bg-transparent datetimepicker-input" name="tourDate" [(ngModel)]="formModel.tourDate" id="tourDate"
+                         placeholder="Date & Time"/>
+                  <label for="tourDate">Date & Time</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <select class="form-select bg-transparent" [(ngModel)]="formModel.packageId" name="packageId" id="packageId">
+                    <option value="">Chọn gói dịch vụ</option>
+                    <ng-container *ngFor="let item of listPackage">
+                      <option value="{{item.id}}">{{item.name}}</option>
+                    </ng-container>
+                  </select>
+                  <label for="packageId">Gói dịch vụ</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-floating">
+                  <textarea class="form-control bg-transparent" name="request" [(ngModel)]="formModel.request" placeholder="Special Request" id="request"
+                            style="height: 100px"></textarea>
+                  <label for="request">Yêu cầu</label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button class="btn btn-outline-light w-100 py-3" type="submit">Đặt tour</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
